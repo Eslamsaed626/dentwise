@@ -11,7 +11,9 @@ const Home = () => {
     <div className="min-h-screen bg-background">
       <Header></Header>
       <Hero></Hero>
-      <HowItWork></HowItWork>
+      <section id="how-it-work">
+        <HowItWork></HowItWork>
+      </section>
       <WhatToAsk></WhatToAsk>
       <PricingSection></PricingSection>
       <CTA></CTA>
