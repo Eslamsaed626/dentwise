@@ -1,12 +1,21 @@
-import { Button } from "@/components/ui/button";
-import { SignUpButton } from "@clerk/nextjs";
-import React from "react";
+import CTA from "@/components/landing/CTA";
+import Footer from "@/components/landing/Footer";
+import Header from "@/components/landing/Header";
+import Hero from "@/components/landing/Hero";
+import HowItWork from "@/components/landing/HowItWork";
+import PricingSection from "@/components/landing/PricingSection";
+import WhatToAsk from "@/components/landing/WhatToAsk";
 
 const Home = () => {
   return (
-    <div>
-      <h1>home page</h1>
-      <SignUpButton></SignUpButton>
+    <div className="min-h-screen bg-background">
+      <Header></Header>
+      <Hero></Hero>
+      <HowItWork></HowItWork>
+      <WhatToAsk></WhatToAsk>
+      <PricingSection></PricingSection>
+      <CTA></CTA>
+      <Footer></Footer>
     </div>
   );
 };
