@@ -6,24 +6,13 @@
 
 generator client {
   provider = "prisma-client"
-  // output   = "../src/generated/prisma"
+  output   = "../src/generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
 }
-
-enum Gender {
-  MALE
-  FEMALE
-}
-
-enum AppointmentStatus {
- CONFIRMED
- COMPLETED
-}
-
-model User{
+model User {
   id        String @id @default(cuid())
   clerkId   String @unique
   email     String @unique
@@ -33,11 +22,10 @@ model User{
   createdAt DateTime @default(now()) // member since sep 2025
   updatedAt DateTime @updatedAt
 
-    // relationships
+  // relationships
   appointments Appointment[]
 
   @@map("users")
-
 }
 
 model Doctor {
@@ -60,9 +48,6 @@ model Doctor {
 
 }
 
-
-
-
 model Appointment {
   id          String            @id @default(cuid())
   date        DateTime
@@ -83,4 +68,15 @@ model Appointment {
   doctor Doctor @relation(fields: [doctorId], references: [id], onDelete: Cascade)
 
   @@map("appointments")
+}
+
+
+enum Gender {
+  MALE
+  FEMALE
+}
+
+enum AppointmentStatus {
+ CONFIRMED
+ COMPLETED
 }

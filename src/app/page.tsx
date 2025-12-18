@@ -5,15 +5,17 @@ import Hero from "@/components/landing/Hero";
 import HowItWork from "@/components/landing/HowItWork";
 import PricingSection from "@/components/landing/PricingSection";
 import WhatToAsk from "@/components/landing/WhatToAsk";
+import { currentUser } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
 
-const Home = () => {
+const Home = async () => {
+  const user = await currentUser();
+  if (user) redirect("/dashboard");
   return (
     <div className="min-h-screen bg-background">
       <Header></Header>
       <Hero></Hero>
-      <section id="how-it-work">
-        <HowItWork></HowItWork>
-      </section>
+      <HowItWork></HowItWork>
       <WhatToAsk></WhatToAsk>
       <PricingSection></PricingSection>
       <CTA></CTA>
