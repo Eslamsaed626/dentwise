@@ -11,7 +11,7 @@ const UserSync = () => {
       if (isLoaded && isSignedIn) {
         try {
           const user = await syncUser();
-          console.log(user);
+          //   console.log(user);
         } catch (error) {
           console.log("faild to sync user ", error);
         }
