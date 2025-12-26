@@ -9,11 +9,6 @@ async function ProPage() {
 
   if (!user) redirect("/");
 
-  const { has } = await auth();
-  const hasProPlan = has({ plan: "ai_basic" }) || has({ plan: "ai_pro" });
-
-  console.log("has proplan", hasProPlan);
-
   return (
     <>
       <Navbar />
